@@ -3,6 +3,8 @@ import config from "../config";
 import Blogs from "./blogs";
 import Authors from "./authors";
 import BlogTags from "./blogtags";
+import Users from "./users";
+import AccessTokens from "./accesstokens";
 
 // export const Connection = mysql.createConnection(config.mysql);
 export const pool = mysql.createPool(config.mysql);
@@ -19,5 +21,7 @@ export const Query = (query: string, values?: Array<string | number>) => {
 export default {
     Blogs,
     Authors,
-    BlogTags
+    BlogTags,
+    Users,
+    AccessTokens
 }

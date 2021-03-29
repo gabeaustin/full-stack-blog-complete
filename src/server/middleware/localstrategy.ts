@@ -15,7 +15,11 @@ passport.use(new LocalStrategy.Strategy({ usernameField: "email",
     }, async (email, password, done) => {
         try {
             let [user]: any = await DB.Users.findOneByEmail(email);
-            if(user && ComparePassword(password, user.password))
+            if(user && ComparePassword(password, user.password)) {
+                done(null, user);
+            } else {
+                done(null, false);
+            }
         } catch(e) {
             done(e);
         }
